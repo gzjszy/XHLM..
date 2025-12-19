@@ -214,12 +214,120 @@
     }
     
     /* 响应式调整 */
+    @media (max-width: 1024px) {
+      /* 成员卡片网格 */
+      #members .grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      
+      /* 图表容器 */
+      #data .grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      /* 容器内边距 */
+      .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      
+      /* 团队简介 */
+      #intro .grid {
+        gap: 6rem;
+      }
+      
+      /* 图表容器 */
+      #data .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
     @media (max-width: 640px) {
+      /* 荣誉卡片 */
       .honor-card {
         min-w-[280px] !important;
       }
+      
+      /* 时间线 */
       .timeline-line {
         left: 24px !important;
+      }
+      
+      /* 成员卡片网格 */
+      #members .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      /* 成长历程时间线节点 */
+      .relative > .md\:flex > .absolute {
+        left: 24px;
+        top: 0;
+        bottom: auto;
+        display: flex !important;
+      }
+      
+      /* 成长历程内容 */
+      .md\:w-1\/2 {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      
+      /* 成长历程卡片 */
+      .md\:pr-16, .md\:pl-16 {
+        padding-right: 0 !important;
+        padding-left: 3rem !important;
+      }
+      
+      /* 荣誉轮播 */
+      #honorSlider {
+        padding: 0 1rem;
+      }
+      
+      /* 页脚 */
+      footer .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      /* 按钮 */
+      .btn-ripple {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      /* 英雄区 */
+      header {
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 0 80px;
+      }
+      
+      /* 标题 */
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      
+      h2 {
+        font-size: 2rem !important;
+      }
+      
+      /* 容器内边距 */
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      /* 间距调整 */
+      section {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+      }
+      
+      /* 标题区域 */
+      .text-center.mb-16 {
+        margin-bottom: 3rem !important;
       }
     }
     
@@ -241,14 +349,14 @@
 
 <body class="font-sans text-neutral-800 antialiased">
   <!-- 导航栏 - 重构优化 -->
-  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-4">
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent py-4 md:py-4">
     <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
       <!-- Logo区域 -->
       <a href="#" class="flex items-center space-x-2 group">
-        <div class="w-14 h-14 rounded-full bg-transparent flex items-center justify-center p-2 transition-all duration-300 group-hover:bg-primary/20">
+        <div class="w-12 h-12 rounded-full bg-transparent flex items-center justify-center p-2 transition-all duration-300 group-hover:bg-primary/20 md:w-14 md:h-14">
           <img src="images/your-logo-top.png" alt="星火联盟Logo" class="w-full h-full object-contain logo" onerror="this.src='https://via.placeholder.com/64?text=星火联盟'; this.alt='星火联盟Logo'">
         </div>
-        <span class="text-2xl font-bold text-white text-shadow-lg transition-colors duration-300 group-hover:text-accent">星火联盟</span>
+        <span class="text-xl font-bold text-white text-shadow-lg transition-colors duration-300 group-hover:text-accent md:text-2xl">星火联盟</span>
       </a>
       
       <!-- 桌面端导航 -->
@@ -333,7 +441,7 @@
       </div>
       
       <!-- 内容区域 -->
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <!-- 左侧内容 -->
         <div class="space-y-8">
           <div class="space-y-4">
@@ -454,7 +562,7 @@
       </div>
       
       <!-- 成员卡片网格 -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <!-- 成员1：刘昌伟 -->
         <div class="member-card bg-white rounded-xl overflow-hidden shadow-elevation-2 border border-neutral-100">
           <div class="h-64 overflow-hidden bg-neutral-100 relative group">
@@ -981,9 +1089,9 @@
       <!-- 荣誉轮播 -->
       <div class="relative mb-20">
         <!-- 轮播控制按钮 -->
-        <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-10 hidden md:block">
-          <button id="honorPrev" class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-elevation-2 text-primary hover:bg-primary hover:text-white transition-all duration-300 btn-ripple">
-            <i class="fa fa-angle-left text-xl"></i>
+        <div class="absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+          <button id="honorPrev" class="bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-elevation-2 text-primary hover:bg-primary hover:text-white transition-all duration-300 btn-ripple md:w-12 md:h-12">
+            <i class="fa fa-angle-left text-lg md:text-xl"></i>
           </button>
         </div>
         
@@ -1332,7 +1440,7 @@
     // 将下一个按钮添加到DOM中
     const honorPrevParent = honorPrev.parentElement.parentElement;
     const nextBtnContainer = document.createElement('div');
-    nextBtnContainer.className = 'absolute top-1/2 right-0 transform -translate-y-1/2 z-10 hidden md:block';
+    nextBtnContainer.className = 'absolute top-1/2 right-0 transform -translate-y-1/2 z-10';
     nextBtnContainer.appendChild(honorNext);
     honorPrevParent.appendChild(nextBtnContainer);
 
